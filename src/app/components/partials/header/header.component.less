@@ -1,0 +1,59 @@
+header{
+    position: relative;
+    padding: 0;
+    border-bottom:1px solid #e72929;
+    background: white;
+}
+a{
+    color: blueviolet;
+}
+a:hover{
+    background: white;
+    color: #e72929;
+    cursor: pointer;
+}
+
+.container{
+    justify-content: space-between;
+    margin: 0;
+    display: flex;
+}
+a.logo{
+    font-weight:bold;
+    margin: 1rem;
+}
+ul{
+    display: flex;
+    list-style-type: none;
+    margin: 0;
+}
+ul a{
+    display: inline-block;
+    padding: 1rem;
+}
+a span{
+    background:#ff4d4d;
+    color: white;
+    padding: .1rem .45rem;
+    font-size: .9rem;
+    border-radius: 100rem;
+}
+.menu-container{
+    position: relative;
+
+}
+.menu{
+    position: absolute;
+    z-index: 1;
+    background: whitesmoke;
+    display: none;
+
+}
+.menu-container:hover .menu{
+    display: block;
+}
+.menu a{
+  width: 100%;
+  min-width: 8rem;  
+  
+}
