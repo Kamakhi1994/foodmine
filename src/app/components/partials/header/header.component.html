@@ -15,7 +15,7 @@
                     </div>
                 </li>
                 <li>
-                    <a routerLink="/cartpage">cart <span>3</span></a>
+                    <a routerLink="/cart-page">cart <span *ngIf="cartquantity">{{cartquantity}}</span></a>
                 </li>
             </ul>
         </nav>

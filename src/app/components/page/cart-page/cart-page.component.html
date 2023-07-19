@@ -1,0 +1,40 @@
+<app-notfound [visible]="!cart || !cart.Item.length"
+notfoundmessage="Cart page is empty"
+resetLinktext="Go to Homepage">
+    
+</app-notfound>
+<div *ngIf="cart && cart.Item.length" class="container">
+    <ul>
+        <li *ngFor="let cartitem of cart.Item">
+            <div>
+            <img src="{{cartitem.food.imageUrl}}" alt="{{cartitem.food.name}}">
+        </div>
+        <div>
+            <a routerLink="/food/{{cartitem.food.id}}">
+                {{cartitem.food.name}}
+            </a>
+        </div>
+            <div>
+                <select #quantityselect [value]="cartitem.quantity"
+                 (change)="changequantity(cartitem,quantityselect.value)">
+                 <option value="1">1</option>
+                <option value="2">2</option></select>
+            </div>
+        <div>
+            {{cartitem.price | currency}}
+        </div>
+        <div>
+            <button (click)="removeFromcart(cartitem)">Remove</button>
+        </div>
+
+        </li>
+    </ul>
+        <div class="checkout">
+            <div>
+                <div class="foodcount">{{cart.count}}</div>
+                <div class="total price">{{cart.price|currency}}</div>
+    <a routerLink="/check out">Proceed to check out</a>
+</div>
+
+</div>
+

@@ -1,0 +1,6 @@
+
+<div>
+    <input #s  type="text" (keyup.enter)="search(s.value)"
+    [value]="food_term">
+    <button (click)="search(s.value)" [value]="food_term" >Search</button>
+</div>
