@@ -9,21 +9,24 @@ import { Food } from 'src/app/shared/model/food';
   templateUrl: './food.component.html',
   styleUrls: ['./food.component.less']
 })
-export class FoodComponent implements OnInit{
+export class FoodComponent implements OnInit {
   food!:Food;
   constructor(route:ActivatedRoute,foodservice:FoodService,private cartservice:CartService,private router:Router){
     route.params.subscribe(param=>{
       if(param['id'])
-      this.food=foodservice.getFoodbyid(param['id'])
+      foodservice.getFoodbyid(param['id']).subscribe(serverfood=>{
+        this.food=serverfood;
+      })
     })
 
+  }
+  ngOnInit(): void {
+    throw new Error('Method not implemented.');
   }
   addTocart(){
     this.router.navigateByUrl('/cart-page');
     this.cartservice.addTocart(this.food);
   }
-  ngOnInit(): void {
-    throw new Error('Method not implemented.');
-  }
+
 
 }
